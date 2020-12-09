@@ -1,0 +1,58 @@
+name: test
+on: [push]
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    name: test
+    steps:
+
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1
+
+      - name: Cache Docker layers
+        uses: actions/cache@v2
+        with:
+          path: /tmp/.buildx-cache
+          key: ${{ runner.os }}-buildx-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-buildx-
+
+      - name: Setup environment
+        id: setenv
+        run: |
+          IMAGE=aidmax/structurizr-cli-docker:${GITHUB_SHA}
+          echo "::set-output name=image::$IMAGE"
+
+      - name: Build
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          file: ./Dockerfile
+          load: true
+          cache-to: type=local,dest=/tmp/.buildx-cache
+          tags: ${{ steps.setenv.outputs.image }}
+
+      - name: CVE scan image
+        uses: docker://docker.io/aquasec/trivy:latest
+        with:
+          args: --cache-dir /var/lib/trivy --no-progress --exit-code 1 --severity MEDIUM,HIGH,CRITICAL ${{ steps.setenv.outputs.image }}
+
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v1
+        with:
+          registry: ghcr.io
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build and push
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          file: ./Dockerfile
+          push: true
+          cache-from: type=local,src=/tmp/.buildx-cache
+          tags: ${{ steps.setenv.outputs.image }}
