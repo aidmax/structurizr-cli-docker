@@ -24,7 +24,7 @@ jobs:
       - name: Setup environment
         id: setenv
         run: |
-          IMAGE=ghcr.io/aidmax/structurizr-cli-docker:${GITHUB_SHA}
+          IMAGE=ghcr.io/${{ github.repository_owner }}/structurizr-cli-docker:latest
           echo "::set-output name=image::$IMAGE"
 
       - name: Build
