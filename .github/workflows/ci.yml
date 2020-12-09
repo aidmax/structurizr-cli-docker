@@ -56,3 +56,5 @@ jobs:
           push: true
           cache-from: type=local,src=/tmp/.buildx-cache
           tags: ${{ steps.setenv.outputs.image }}
+          secrets: |
+            GIT_AUTH_TOKEN=${{ secrets.CR_PAT }}
