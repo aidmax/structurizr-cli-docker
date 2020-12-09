@@ -24,7 +24,7 @@ jobs:
       - name: Setup environment
         id: setenv
         run: |
-          IMAGE=aidmax/structurizr-cli-docker:${GITHUB_SHA}
+          IMAGE=ghcr.io/aidmax/structurizr-cli-docker:${GITHUB_SHA}
           echo "::set-output name=image::$IMAGE"
 
       - name: Build
@@ -56,5 +56,3 @@ jobs:
           push: true
           cache-from: type=local,src=/tmp/.buildx-cache
           tags: ${{ steps.setenv.outputs.image }}
-          secrets: |
-            GIT_AUTH_TOKEN=${{ secrets.CR_PAT }}
