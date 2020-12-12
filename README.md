@@ -5,7 +5,11 @@ This docker container allows you to run [structurizr-cli](https://github.com/str
 ## Usage
 
 ```bash
-docker pull ghcr.io/aidmax/structurizr-cli-docker:latest
+# run using docker command
+docker run --rm -v "${PWD}":/root/data ghcr.io/aidmax/structurizr-cli-docker:latest
+
+# or just simply use run.sh
+./runstr.sh
 ```
 
 ## License
