@@ -1,5 +1,11 @@
 name: ci
-on: [push]
+on:
+  push:
+    branches:
+      - '**'
+    tags:
+      - 'v*'
+  pull_request:
 
 jobs:
   ci:
@@ -9,6 +15,10 @@ jobs:
 
       - name: Checkout
         uses: actions/checkout@v2
+
+      - name: Get shortsha
+        id: vars
+        run: echo ::set-output name=sha_short::sha-$(git rev-parse --short=7 ${{ github.sha }})
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
@@ -50,7 +60,10 @@ jobs:
             --no-progress
             --exit-code 1
             --severity MEDIUM,HIGH,CRITICAL
-            ${{ steps.docker_meta.outputs.tags }}
+            ghcr.io/${{ github.repository }}:${{ steps.vars.outputs.sha_short }}
+
+      - name: Run shellcheck
+        uses: ludeeus/action-shellcheck@master
 
       - name: Login to GitHub Container Registry
         if: github.event_name != 'pull_request'
