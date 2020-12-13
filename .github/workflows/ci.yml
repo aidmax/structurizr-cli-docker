@@ -1,5 +1,11 @@
 name: ci
-on: [push]
+on:
+  push:
+    branches:
+      - '**'
+    tags:
+      - 'v*'
+  pull_request:
 
 jobs:
   ci:
@@ -50,7 +56,10 @@ jobs:
             --no-progress
             --exit-code 1
             --severity MEDIUM,HIGH,CRITICAL
-            ${{ steps.docker_meta.outputs.tags }}
+            ghcr.io/${{ github.repository }}
+
+      - name: Run shellcheck
+        uses: ludeeus/action-shellcheck@master
 
       - name: Login to GitHub Container Registry
         if: github.event_name != 'pull_request'
