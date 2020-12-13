@@ -21,12 +21,6 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-buildx-
 
-      - name: Setup environment
-        id: setenv
-        run: |
-          IMAGE=ghcr.io/${{ github.repository_owner }}/structurizr-cli-docker:latest
-          echo "::set-output name=image::$IMAGE"
-
       - name: Docker meta
         id: docker_meta
         uses: crazy-max/ghaction-docker-meta@v1
@@ -47,7 +41,12 @@ jobs:
       - name: CVE scan image
         uses: docker://docker.io/aquasec/trivy:latest
         with:
-          args: --cache-dir /var/lib/trivy --no-progress --exit-code 1 --severity MEDIUM,HIGH,CRITICAL ${{ steps.setenv.outputs.image }}
+          args: >-
+            --cache-dir /var/lib/trivy
+            --no-progress
+            --exit-code 1
+            --severity MEDIUM,HIGH,CRITICAL
+            ${{ steps.docker_meta.outputs.tags }}
 
       - name: Login to GitHub Container Registry
         uses: docker/login-action@v1
@@ -63,4 +62,4 @@ jobs:
           file: ./Dockerfile
           push: true
           cache-from: type=local,src=/tmp/.buildx-cache
-          tags: ${{ steps.setenv.outputs.image }}
+          tags: ${{ steps.docker_meeta.outputs.tags }}
