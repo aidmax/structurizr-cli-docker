@@ -11,6 +11,7 @@ RUN set -e; \
     bash \
     musl-utils==1.1.24-r10 \
     musl==1.1.24-r10 \
+    libssl1.1==1.1.1i-r0 \
     && wget https://github.com/structurizr/cli/releases/download/v${STRUCTURIZR_VERSION}/structurizr-cli-${STRUCTURIZR_VERSION}.zip && \
     unzip structurizr-cli-${STRUCTURIZR_VERSION}.zip && \
     ln -s structurizr-cli-${STRUCTURIZR_VERSION}.jar structurizr-cli.jar && \
