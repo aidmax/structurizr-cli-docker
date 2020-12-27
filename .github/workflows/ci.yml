@@ -1,8 +1,6 @@
 name: ci
 on:
   push:
-    branches:
-      - '**'
     tags:
       - 'v*'
   pull_request:
@@ -33,7 +31,7 @@ jobs:
 
       - name: Docker meta
         id: docker_meta
-        uses: crazy-max/ghaction-docker-meta@v1.9.1
+        uses: crazy-max/ghaction-docker-meta@v1.11.0
         with:
           images: ghcr.io/${{ github.repository }}
           tag-sha: true
@@ -67,7 +65,7 @@ jobs:
 
       - name: Login to GitHub Container Registry
         if: github.event_name != 'pull_request'
-        uses: docker/login-action@v1.6.0
+        uses: docker/login-action@v1.8.0
         with:
           registry: ghcr.io
           username: ${{ github.repository_owner }}
@@ -86,3 +84,9 @@ jobs:
             ${{ steps.docker_meta.outputs.labels }}
             org.opencontainers.image.description=structurizr-cli docker container
             org.opencontainers.image.authors=Maksim Milykh
+
+      - name: Delete oldest image
+        if: github.event_name != 'pull_request'
+        uses: actions/delete-package-versions@v1
+        with:
+          package-name: 'structurizr-cli-docker'
