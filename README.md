@@ -12,10 +12,15 @@ docker run --rm -v "${PWD}":/root/data ghcr.io/aidmax/structurizr-cli-docker:lat
 ./runstr.sh
 ```
 
+## GitHub Action
+
+There is also a GitHub Action based on this repo you can use for automation.
+
+Refer to [GitHub Marketplace](https://github.com/marketplace/actions/structurizr-cli-action) or [repo](https://github.com/aidmax/structurizr-cli-action)
 ## License
 
 The Dockerfile and documentation in this project are released under the [MIT](license).
 
 ## Credits
 
-The initial GitHub action has been created by [Maksim Milykh](https://github.com/aidmax).
+The Dockerfile and documentation have been created by [Maksim Milykh](https://github.com/aidmax).
