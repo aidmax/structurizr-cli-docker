@@ -85,8 +85,9 @@ jobs:
             org.opencontainers.image.description=structurizr-cli docker container
             org.opencontainers.image.authors=Maksim Milykh
 
-      - name: Delete oldest image
-        if: github.event_name != 'pull_request'
-        uses: actions/delete-package-versions@v1
-        with:
-          package-name: 'structurizr-cli-docker'
+      # Disable this due to https://github.com/actions/delete-package-versions/issues/28
+      # - name: Delete oldest image
+      #   if: github.event_name != 'pull_request'
+      #   uses: actions/delete-package-versions@v1
+      #   with:
+      #     package-name: 'structurizr-cli-docker'
