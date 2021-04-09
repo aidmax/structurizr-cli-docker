@@ -5,14 +5,6 @@ ARG STRUCTURIZR_VERSION
 # Create app directory
 WORKDIR /root/structurizr
 
-# Fix CVE issues
-RUN set -e; \
-    apk add --no-cache \
-    musl-utils==1.1.24-r10 \
-    musl==1.1.24-r10 \
-    libssl1.1==1.1.1i-r0 \
-    libcrypto1.1==1.1.1i-r0
-
 # Install structurizr
 RUN set -e; \
     apk add --no-cache \
