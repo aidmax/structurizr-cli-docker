@@ -14,4 +14,4 @@ RUN set -e; \
     ln -s structurizr-cli-${STRUCTURIZR_VERSION}.jar structurizr-cli.jar && \
     rm structurizr-cli-${STRUCTURIZR_VERSION}.zip
 
-ENTRYPOINT [ "bash", "/root/structurizr/structurizr.sh" ]
+ENTRYPOINT [ "/root/structurizr/structurizr.sh" ]
