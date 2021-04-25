@@ -1,5 +1,6 @@
 #!/bin/bash
 
-ARG=$*
-
-docker run --rm -v "${PWD}":/root/data ghcr.io/aidmax/structurizr-cli-docker:latest "${ARG}"
+docker run --rm \
+           -v "${PWD}":/root/data \
+           -w /root/data \
+           ghcr.io/aidmax/structurizr-cli-docker:latest "$@"
