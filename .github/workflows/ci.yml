@@ -37,7 +37,7 @@ jobs:
 
       - name: Docker meta
         id: docker_meta
-        uses: crazy-max/ghaction-docker-meta@v1.11.0
+        uses: crazy-max/ghaction-docker-meta@v2.5.0
         with:
           images: ghcr.io/${{ github.repository }}
           tag-sha: true
