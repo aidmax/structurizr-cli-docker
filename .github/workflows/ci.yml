@@ -40,7 +40,8 @@ jobs:
         uses: crazy-max/ghaction-docker-meta@v3.1.0
         with:
           images: ghcr.io/${{ github.repository }}
-          tag-sha: true
+          tags: |
+            type=sha
 
       - name: Build
         uses: docker/build-push-action@v2.4.0
