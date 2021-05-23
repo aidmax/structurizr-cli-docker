@@ -6,7 +6,10 @@ This docker container allows you to run [structurizr-cli](https://github.com/str
 
 ```bash
 # run using docker command
-docker run --rm -v "${PWD}":/root/data -w /root/data ghcr.io/aidmax/structurizr-cli-docker:latest
+docker run --rm -v "${PWD}":/root/data -w /root/data ghcr.io/aidmax/structurizr-cli-docker
+
+# using shell alias in .bashrc/.zshcr
+alias str="docker run --rm -v "${PWD}":/root/data -w /root/data ghcr.io/aidmax/structurizr-cli-docker"
 
 # or just simply use run.sh
 ./runstr.sh
