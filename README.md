@@ -5,16 +5,17 @@ This docker container allows you to run [structurizr-cli](https://github.com/str
 ## Usage
 
 ```bash
-# run using docker command
-docker run --rm -v "${PWD}":/root/data -w /root/data ghcr.io/aidmax/structurizr-cli-docker
-
-# using shell alias in .bashrc/.zshcr
+# Make alias for cli command
 alias str="docker run --rm -v '${PWD}':/root/data -w /root/data ghcr.io/aidmax/structurizr-cli-docker"
 
-str
+# Load your credentials (see example in .env.sample)
+source .env
 
-# or just simply use run.sh
-./runstr.sh
+# Check syntax
+str validate -workspace workspace.dsl
+
+# Push diagrams to structurizr web service
+str push -id $STR_ID -key $STR_API_KEY -secret $STR_API_SECRET -workspace your_workspace_file.dsl
 ```
 
 ## GitHub Action
