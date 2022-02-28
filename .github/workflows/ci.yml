@@ -97,16 +97,16 @@ jobs:
           else
             exit 1
           fi
-
-      - name: CVE scan image
-        uses: docker://docker.io/aquasec/trivy:latest
+      
+      - name: Run Trivy vulnerability scanner
+        uses: aquasecurity/trivy-action@master
         with:
-          args: >-
-            --cache-dir /var/lib/trivy
-            --no-progress
-            --exit-code 1
-            --severity MEDIUM,HIGH,CRITICAL
-            ghcr.io/${{ github.repository }}:${{ steps.vars.outputs.sha_short }}
+          image-ref: 'ghcr.io/${{ github.repository }}:${{ steps.vars.outputs.sha_short }}'
+          format: 'table'
+          exit-code: '1'
+          ignore-unfixed: true
+          vuln-type: 'os,library'
+          severity: 'CRITICAL,HIGH'
 
       - name: Run shellcheck
         uses: ludeeus/action-shellcheck@master
