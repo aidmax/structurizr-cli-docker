@@ -85,7 +85,32 @@ jobs:
              -id ${{ secrets.STZR_ID }} \
              -key ${{ secrets.STZR_API_KEY }} \
              -secret ${{ secrets.STZR_API_SECRET }}
-
+             
+      - name: Checking "lock" command
+        # See https://github.blog/changelog/2021-02-19-github-actions-workflows-triggered-by-dependabot-prs-will-run-with-read-only-permissions/
+        if: github.actor!= 'dependabot[bot]'
+        run: |
+          ./runstr.sh lock \
+             -id ${{ secrets.STZR_ID }} \
+             -key ${{ secrets.STZR_API_KEY }} \
+             -secret ${{ secrets.STZR_API_SECRET }}
+             
+      - name: Checking "validate" command
+        # See https://github.blog/changelog/2021-02-19-github-actions-workflows-triggered-by-dependabot-prs-will-run-with-read-only-permissions/
+        if: github.actor!= 'dependabot[bot]'
+        run: |
+          ./runstr.sh validate \
+             -workspace ./tests/workspace.dsl
+             
+      - name: Checking "unlock" command
+        # See https://github.blog/changelog/2021-02-19-github-actions-workflows-triggered-by-dependabot-prs-will-run-with-read-only-permissions/
+        if: github.actor!= 'dependabot[bot]'
+        run: |
+          ./runstr.sh unlock \
+             -id ${{ secrets.STZR_ID }} \
+             -key ${{ secrets.STZR_API_KEY }} \
+             -secret ${{ secrets.STZR_API_SECRET }}
+             
       - name: Verify downloaded workspace files
         # See https://github.blog/changelog/2021-02-19-github-actions-workflows-triggered-by-dependabot-prs-will-run-with-read-only-permissions/
         if: github.actor!= 'dependabot[bot]'
