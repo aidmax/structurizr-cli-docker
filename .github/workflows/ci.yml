@@ -112,6 +112,15 @@ jobs:
           ./runstr.sh list \
              -workspace ./tests/workspace.dsl
              
+      - name: Checking "export" command
+        # See https://github.blog/changelog/2021-02-19-github-actions-workflows-triggered-by-dependabot-prs-will-run-with-read-only-permissions/
+        if: github.actor!= 'dependabot[bot]'
+        run: |
+          for format in plantuml mermaid websequencediagrams dot ilograph json dsl theme 
+            do 
+              ./runstr.sh export -workspace ./tests/workspace.dsl format $format;
+            done
+             
       - name: Run Trivy vulnerability scanner
         uses: aquasecurity/trivy-action@master
         with:
