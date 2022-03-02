@@ -86,7 +86,7 @@ jobs:
              -key ${{ secrets.STZR_API_KEY }} \
              -secret ${{ secrets.STZR_API_SECRET }}
               
-      - name: Verify downloaded workspace files
+      - name: Checking "pull" command verify downloaded workspace files
         # See https://github.blog/changelog/2021-02-19-github-actions-workflows-triggered-by-dependabot-prs-will-run-with-read-only-permissions/
         if: github.actor!= 'dependabot[bot]'
         run: |
