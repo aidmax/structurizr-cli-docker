@@ -118,7 +118,7 @@ jobs:
         run: |
           for format in plantuml mermaid websequencediagrams dot ilograph json dsl theme 
             do 
-              ./runstr.sh export -workspace ./tests/workspace.dsl format $format;
+              ./runstr.sh export -workspace ./tests/workspace.dsl -format $format;
             done
              
       - name: Run Trivy vulnerability scanner
