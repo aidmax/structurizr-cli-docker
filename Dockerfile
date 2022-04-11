@@ -1,4 +1,4 @@
-FROM adoptopenjdk/openjdk8:alpine-jre
+FROM adoptopenjdk/openjdk15:alpine-jre
 
 ARG STRUCTURIZR_VERSION
 
