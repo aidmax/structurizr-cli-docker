@@ -32,8 +32,8 @@ jobs:
             base: main
             committer: GitHub <noreply@github.com>
             author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
-            assignees: aidmax
-            reviewers: aidmax
+            assignees: ${{ github.repository_owner }}
+            reviewers: ${{ github.repository_owner }}
             labels: |
               bump_upstream_version
               automated_pr
