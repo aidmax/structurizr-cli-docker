@@ -24,16 +24,16 @@ jobs:
         uses: peter-evans/create-pull-request@v4.0.2
         with:
             token: ${{ secrets.GITHUB_TOKEN }}
-            commit-message: "feat(structurizr-cli): bump the version"
+            commit-message: "feat(structurizr-cli): bump version"
             title: Update upstream version
             body: |
               - Dependency updates
-            branch: dev
+            branch-suffix: random
             base: main
             committer: GitHub <noreply@github.com>
             author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
-            assignees: aidmax
-            reviewers: aidmax
+            assignees: ${{ github.repository_owner }}
+            reviewers: ${{ github.repository_owner }}
             labels: |
               bump_upstream_version
               automated_pr
