@@ -4,7 +4,7 @@ on:
     tags:
       - 'v*'
     branches:
-      - dev
+      - 'create-pull-request/**'
   pull_request:
     branches:
       - main
