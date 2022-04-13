@@ -1,4 +1,4 @@
-FROM adoptopenjdk/openjdk15:alpine-jre
+FROM eclipse-temurin:11-alpine
 
 ARG STRUCTURIZR_VERSION
 
