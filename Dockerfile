@@ -1,4 +1,4 @@
-FROM eclipse-temurin:17-alpine
+FROM eclipse-temurin:18-alpine
 
 ARG STRUCTURIZR_VERSION
 
