@@ -1,0 +1,279 @@
+{
+  "version": "1.0",
+  "engine": "darwin|Transformer|1.37.5|latest|latest",
+  "containerized": false,
+  "host_distro": {
+    "name": "",
+    "version": "",
+    "display_name": "other"
+  },
+  "type": "build",
+  "state": "error",
+  "error": "exec.cmd.failure",
+  "target_reference": "ghcr.io/aidmax/structurizr-cli-docker:latest",
+  "system": {
+    "type": "",
+    "release": "",
+    "distro": {
+      "name": "",
+      "version": "",
+      "display_name": ""
+    }
+  },
+  "source_image": {
+    "identity": {
+      "id": ""
+    },
+    "size": 0,
+    "size_human": "",
+    "create_time": "",
+    "docker_version": "",
+    "architecture": "",
+    "container_entry": {
+      "exe_path": ""
+    }
+  },
+  "minified_image_size": 0,
+  "minified_image_size_human": "",
+  "minified_image": "",
+  "minified_image_has_data": false,
+  "minified_by": 0,
+  "artifact_location": "",
+  "container_report_name": "",
+  "seccomp_profile_name": "",
+  "apparmor_profile_name": "",
+  "image_stack": [
+    {
+      "is_top_image": true,
+      "id": "sha256:f6fba294614bf8e4f8ddb9576e362161601e9141907f4e39d5856e0f320ae245",
+      "full_name": "ghcr.io/aidmax/structurizr-cli-docker:latest",
+      "repo_name": "ghcr.io/aidmax/structurizr-cli-docker",
+      "version_tag": "latest",
+      "raw_tags": [
+        "ghcr.io/aidmax/structurizr-cli-docker:latest",
+        "ghcr.io/aidmax/structurizr-cli-docker:sha-f6fa773"
+      ],
+      "create_time": "2022-09-10T14:57:00Z",
+      "new_size": 451815552,
+      "new_size_human": "452 MB",
+      "instructions": [
+        {
+          "type": "ADD",
+          "time": "2022-08-09T17:19:53Z",
+          "is_nop": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 5544164,
+          "size_human": "5.5 MB",
+          "params": "file:2a949686d9886ac7c10582a6c29116fd29d3077d02755e87e111870d63607725 in /",
+          "command_snippet": "ADD file:2a949686d9886ac7c10582a6c29116fd29d...",
+          "command_all": "ADD file:2a949686d9886ac7c10582a6c29116fd29d3077d02755e87e111870d63607725 /",
+          "target": "/",
+          "source_type": "file"
+        },
+        {
+          "type": "CMD",
+          "time": "2022-08-09T17:19:53Z",
+          "is_nop": true,
+          "is_exec_form": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 0,
+          "params": "[\"/bin/sh\"]\n",
+          "command_snippet": "CMD [\"/bin/sh\"]\n",
+          "command_all": "CMD [\"/bin/sh\"]\n"
+        },
+        {
+          "type": "ENV",
+          "time": "2022-08-11T19:19:38Z",
+          "is_nop": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 0,
+          "params": "JAVA_HOME=/opt/java/openjdk",
+          "command_snippet": "ENV JAVA_HOME=/opt/java/openjdk",
+          "command_all": "ENV JAVA_HOME=/opt/java/openjdk"
+        },
+        {
+          "type": "ENV",
+          "time": "2022-08-11T19:19:38Z",
+          "is_nop": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 0,
+          "params": "PATH=/opt/java/openjdk/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+          "command_snippet": "ENV PATH=/opt/java/openjdk/bin:/usr/local/sb...",
+          "command_all": "ENV PATH=/opt/java/openjdk/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+        },
+        {
+          "type": "ENV",
+          "time": "2022-08-11T19:19:38Z",
+          "is_nop": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 0,
+          "params": "LANG=en_US.UTF-8 LANGUAGE=en_US:en LC_ALL=en_US.UTF-8",
+          "command_snippet": "ENV LANG=en_US.UTF-8 LANGUAGE=en_US:en LC_AL...",
+          "command_all": "ENV LANG=en_US.UTF-8 LANGUAGE=en_US:en LC_ALL=en_US.UTF-8"
+        },
+        {
+          "type": "RUN",
+          "time": "2022-08-11T19:19:40Z",
+          "is_nop": false,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 23438674,
+          "size_human": "23 MB",
+          "command_snippet": "RUN apk add --no-cache fontconfig libretls m...",
+          "command_all": "RUN apk add --no-cache fontconfig libretls musl-locales musl-locales-lang ttf-dejavu tzdata zlib && \\\n\trm -rf /var/cache/apk/*",
+          "system_commands": [
+            "apk add --no-cache fontconfig libretls musl-locales musl-locales-lang ttf-dejavu tzdata zlib",
+            "rm -rf /var/cache/apk/*"
+          ]
+        },
+        {
+          "type": "ENV",
+          "time": "2022-08-29T18:27:26Z",
+          "is_nop": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 0,
+          "params": "JAVA_VERSION=jdk-18.0.2.1+1",
+          "command_snippet": "ENV JAVA_VERSION=jdk-18.0.2.1+1",
+          "command_all": "ENV JAVA_VERSION=jdk-18.0.2.1+1"
+        },
+        {
+          "type": "RUN",
+          "time": "2022-08-29T18:27:42Z",
+          "is_nop": false,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 329963970,
+          "size_human": "330 MB",
+          "command_snippet": "RUN set -eux;     ARCH=\"$(apk --print-arch)\"...",
+          "command_all": "RUN set -eux;     ARCH=\"$(apk --print-arch)\";     case \"${ARCH}\" in        amd64|x86_64)          ESUM='478c8f56dec7378ed8c687e8d7d0fbf729973c62c497cfc8cf58bd621849d764';          BINARY_URL='https://github.com/adoptium/temurin18-binaries/releases/download/jdk-18.0.2.1%2B1/OpenJDK18U-jdk_x64_alpine-linux_hotspot_18.0.2.1_1.tar.gz';          ;;        *)          echo \"Unsupported arch: ${ARCH}\";          exit 1;          ;;     esac; \t  wget -O /tmp/openjdk.tar.gz ${BINARY_URL}; \t  echo \"${ESUM} */tmp/openjdk.tar.gz\" | sha256sum -c -; \t  mkdir -p \"$JAVA_HOME\"; \t  tar --extract \t      --file /tmp/openjdk.tar.gz \t      --directory \"$JAVA_HOME\" \t      --strip-components 1 \t      --no-same-owner \t  ;     rm /tmp/openjdk.tar.gz;",
+          "system_commands": [
+            "set -eux",
+            "ARCH=\"$(apk --print-arch)\"",
+            "case \"${ARCH}\" in        amd64|x86_64)          ESUM='478c8f56dec7378ed8c687e8d7d0fbf729973c62c497cfc8cf58bd621849d764'",
+            "BINARY_URL='https://github.com/adoptium/temurin18-binaries/releases/download/jdk-18.0.2.1%2B1/OpenJDK18U-jdk_x64_alpine-linux_hotspot_18.0.2.1_1.tar.gz'",
+            "",
+            "",
+            "*)          echo \"Unsupported arch: ${ARCH}\"",
+            "exit 1",
+            "",
+            "",
+            "esac",
+            "wget -O /tmp/openjdk.tar.gz ${BINARY_URL}",
+            "echo \"${ESUM} */tmp/openjdk.tar.gz\" | sha256sum -c -",
+            "mkdir -p \"$JAVA_HOME\"",
+            "tar --extract       --file /tmp/openjdk.tar.gz       --directory \"$JAVA_HOME\"       --strip-components 1       --no-same-owner",
+            "rm /tmp/openjdk.tar.gz",
+            ""
+          ]
+        },
+        {
+          "type": "RUN",
+          "time": "2022-08-29T18:27:45Z",
+          "is_nop": false,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 0,
+          "command_snippet": "RUN echo Verifying install ... && \\\n\tfileEnc...",
+          "command_all": "RUN echo Verifying install ... && \\\n\tfileEncoding=\"$(echo 'System.out.println(System.getProperty(\"file.encoding\"))' | jshell -s -)\"; [ \"$fileEncoding\" = 'UTF-8' ]; rm -rf ~/.java && \\\n\techo javac --version && \\\n\tjavac --version && \\\n\techo java --version && \\\n\tjava --version && \\\n\techo Complete.",
+          "system_commands": [
+            "echo Verifying install ...",
+            "fileEncoding=\"$(echo 'System.out.println(System.getProperty(\"file.encoding\"))' | jshell -s -)\"; [ \"$fileEncoding\" = 'UTF-8' ]; rm -rf ~/.java",
+            "echo javac --version",
+            "javac --version",
+            "echo java --version",
+            "java --version",
+            "echo Complete."
+          ]
+        },
+        {
+          "type": "CMD",
+          "time": "2022-08-29T18:27:45Z",
+          "is_nop": true,
+          "is_exec_form": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 0,
+          "params": "[\"jshell\"]\n",
+          "command_snippet": "CMD [\"jshell\"]\n",
+          "command_all": "CMD [\"jshell\"]\n"
+        },
+        {
+          "type": "RUN",
+          "time": "2022-09-10T14:56:57Z",
+          "is_nop": false,
+          "is_exec_form": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 0,
+          "command_snippet": "RUN [\"ARG\",\"STRUCTURIZR_VERSION\"]",
+          "command_all": "RUN [\"ARG\",\"STRUCTURIZR_VERSION\"]",
+          "system_commands": [
+            "[\"ARG\",\"STRUCTURIZR_VERSION\"]"
+          ],
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "type": "RUN",
+          "time": "2022-09-10T14:56:57Z",
+          "is_nop": false,
+          "is_exec_form": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 0,
+          "command_snippet": "RUN [\"WORKDIR\",\"/root/structurizr\"]",
+          "command_all": "RUN [\"WORKDIR\",\"/root/structurizr\"]",
+          "system_commands": [
+            "[\"WORKDIR\",\"/root/structurizr\"]"
+          ],
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "type": "RUN",
+          "time": "2022-09-10T14:57:00Z",
+          "is_nop": false,
+          "is_exec_form": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 92868744,
+          "size_human": "93 MB",
+          "command_snippet": "RUN [\"RUN\",\"|1\",\"STRUCTURIZR_VERSION=1.20.1\"...",
+          "command_all": "RUN [\"RUN\",\"|1\",\"STRUCTURIZR_VERSION=1.20.1\",\"/bin/sh\",\"-c\",\"set\",\"-e;\",\"apk\",\"add\",\"--no-cache\",\"bash\",\"&&\",\"wget\",\"https://github.com/structurizr/cli/releases/download/v${STRUCTURIZR_VERSION}/structurizr-cli-${STRUCTURIZR_VERSION}.zip\",\"&&\",\"unzip\",\"structurizr-cli-${STRUCTURIZR_VERSION}.zip\",\"&&\",\"ln\",\"-s\",\"structurizr-cli-${STRUCTURIZR_VERSION}.jar\",\"structurizr-cli.jar\",\"&&\",\"rm\",\"structurizr-cli-${STRUCTURIZR_VERSION}.zip\"]",
+          "system_commands": [
+            "[\"RUN\",\"|1\",\"STRUCTURIZR_VERSION=1.20.1\",\"/bin/sh\",\"-c\",\"set\",\"-e;\",\"apk\",\"add\",\"--no-cache\",\"bash\",\"",
+            "\",\"wget\",\"https://github.com/structurizr/cli/releases/download/v${STRUCTURIZR_VERSION}/structurizr-cli-${STRUCTURIZR_VERSION}.zip\",\"",
+            "\",\"unzip\",\"structurizr-cli-${STRUCTURIZR_VERSION}.zip\",\"",
+            "\",\"ln\",\"-s\",\"structurizr-cli-${STRUCTURIZR_VERSION}.jar\",\"structurizr-cli.jar\",\"",
+            "\",\"rm\",\"structurizr-cli-${STRUCTURIZR_VERSION}.zip\"]"
+          ],
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "type": "RUN",
+          "time": "2022-09-10T14:57:00Z",
+          "is_last_instruction": true,
+          "is_nop": false,
+          "is_exec_form": true,
+          "local_image_exists": true,
+          "layer_index": 0,
+          "size": 0,
+          "command_snippet": "RUN [\"ENTRYPOINT\",\"[bash\",\"/root/structurizr...",
+          "command_all": "RUN [\"ENTRYPOINT\",\"[bash\",\"/root/structurizr/structurizr.sh]\"]",
+          "system_commands": [
+            "[\"ENTRYPOINT\",\"[bash\",\"/root/structurizr/structurizr.sh]\"]"
+          ],
+          "comment": "buildkit.dockerfile.v0",
+          "raw_tags": [
+            "ghcr.io/aidmax/structurizr-cli-docker:latest",
+            "ghcr.io/aidmax/structurizr-cli-docker:sha-f6fa773"
+          ]
+        }
+      ]
+    }
+  ]
+}

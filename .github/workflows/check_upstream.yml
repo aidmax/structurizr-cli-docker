@@ -13,7 +13,7 @@ jobs:
       - name: Fetch release version
         run: |
           curl -sL https://api.github.com/repos/structurizr/cli/releases/latest | \
-          jq -r ".tag_name" > structurizr-cli-latest.txt
+          jq -e -r ".tag_name" > structurizr-cli-latest.txt
 
       - name: Check for modified files
         id: git-check
